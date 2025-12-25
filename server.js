@@ -13,6 +13,12 @@ connectDB()
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "OneHealth Backend API is running 🚀"
+  });
+});
 
 app.use("/api/v1/patient", require("./routes/patientRoutes"));
 
